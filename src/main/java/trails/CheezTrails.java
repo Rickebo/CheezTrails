@@ -34,6 +34,8 @@ public class CheezTrails extends JavaPlugin {
         this.saveDefaultConfig();
         config = getConfig();
         
+        setPrefix(config);
+        
         ParticleTrail.load(config);
         // load after particle trails are loaded
         File lastusedfile = new File(this.getDataFolder() + File.separator + "lastused.yml");
@@ -76,6 +78,11 @@ public class CheezTrails extends JavaPlugin {
     public static void reload() {
         plugin.reloadConfig();
         config = plugin.getConfig();
+        setPrefix(config);
+    }
+    
+    private static void setPrefix(FileConfiguration config)
+    {
         prefix = config.getString("prefix", "Trails");
     }
     

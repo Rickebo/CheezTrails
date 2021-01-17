@@ -24,7 +24,7 @@ command-sound: true
 # should play a sound for the affected player
 update-sound: true
 
-prefix: 'Trails'
+prefix: '§9Trails §1§l> §7'
 
 messages:
   activate-effect-success: 'Activated the %TRAIL% &7effect!'
