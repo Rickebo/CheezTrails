@@ -30,7 +30,7 @@ public class TrailHandler {
     }
     
     public static String getPrefix() {
-    	return String.format("§9%s §1§l> §7", CheezTrails.prefix);
+    	return CheezTrails.prefix;
     }
     
     public static int getTrailCount(ParticleTrail trail) {
