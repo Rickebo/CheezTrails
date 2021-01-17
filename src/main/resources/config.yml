@@ -20,6 +20,10 @@ stand-trail-tick-speed: 1
 # sound when used
 command-sound: true
 
+# Whether or not a change of trail or setting a trail
+# should play a sound for the affected player
+update-sound: true
+
 prefix: 'Trails'
 
 messages:

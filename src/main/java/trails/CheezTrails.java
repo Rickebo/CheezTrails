@@ -47,6 +47,8 @@ public class CheezTrails extends JavaPlugin {
         lastused = YamlConfiguration.loadConfiguration(lastusedfile);
         TrailHandler.loadLastUsed(lastused);
         
+        TrailHandler.setUpdateSound(config.getBoolean("update-sound", true));
+        
         listener = new TrailListener(config.getInt("stand-trail-tick-speed"));
         getServer().getPluginManager().registerEvents(listener, this);
         

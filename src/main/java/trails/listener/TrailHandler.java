@@ -22,6 +22,13 @@ public class TrailHandler {
     public static Map<ParticleTrail, Integer> UsedTrails = new HashMap<ParticleTrail, Integer>();
     private static Map<UUID, ParticleTrail> lastUsed = new HashMap<>();
     
+    private static boolean updateSound = true;
+    
+    public TrailHandler(boolean updateSound)
+    {
+    
+    }
+    
     public static String getPrefix() {
     	return String.format("§9%s §1§l> §7", CheezTrails.prefix);
     }
@@ -79,13 +86,19 @@ public class TrailHandler {
             
             ScrubPlayers.put(p, trail);
             p.sendMessage(TrailHandler.getPrefix() + ConfigMessage.ACTIVATE_EFFECT_SUCCESS.getMessage(trail.getIcon().getItemMeta().getDisplayName()));
-            p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 0.8F, 1.35F);
+            
+            if (updateSound)
+                p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 0.8F, 1.35F);
+            
             UsedTrails.put(trail, getTrailCount(trail) + 1);
             trail.addUser(p);
             return true;
         }
         p.sendMessage(TrailHandler.getPrefix()+ ConfigMessage.ACTIVATE_EFFECT_FAIL.getMessage(trail.getIcon().getItemMeta().getDisplayName()));
-        p.playSound(p.getLocation(), Sound.ENTITY_ZOMBIE_ATTACK_IRON_DOOR, 0.8F, 1.25F);
+        
+        if (updateSound)
+            p.playSound(p.getLocation(), Sound.ENTITY_ZOMBIE_ATTACK_IRON_DOOR, 0.8F, 1.25F);
+        
         return false;
     }
     
@@ -93,14 +106,19 @@ public class TrailHandler {
         ParticleTrail trail = ScrubPlayers.remove(p);
         if (trail != null) {
             p.sendMessage(TrailHandler.getPrefix() + ConfigMessage.DEACTIVATE_EFFECT_SUCCESS.getMessage(trail.getIcon().getItemMeta().getDisplayName()));
-            p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 0.8F, 0.75F);
+            
+            if (updateSound)
+                p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 0.8F, 0.75F);
             
             a(trail);
             trail.removeUser(p);
             return true;
         }
         p.sendMessage(TrailHandler.getPrefix() + ConfigMessage.DEACTIVATE_EFFECT_FAIL.getMessage("%TRAIL%"));
-        p.playSound(p.getLocation(), Sound.ENTITY_ZOMBIE_ATTACK_IRON_DOOR, 0.8F, 1.25F);
+        
+        if (updateSound)
+            p.playSound(p.getLocation(), Sound.ENTITY_ZOMBIE_ATTACK_IRON_DOOR, 0.8F, 1.25F);
+        
         return false;
     }
     
@@ -121,6 +139,11 @@ public class TrailHandler {
             trail.removeUser(p);
         }
         
+    }
+    
+    public static void setUpdateSound(boolean updateSound)
+    {
+        TrailHandler.updateSound = updateSound;
     }
     
     public static ParticleTrail getActiveTrail(Player p) {
