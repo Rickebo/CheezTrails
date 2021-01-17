@@ -127,7 +127,7 @@ public class TrailListener implements Listener {
     }
     
     @EventHandler
-    public void onJoin(PlayerJoinEvent e) {
+    public void onJoin(final PlayerJoinEvent e) {
         new BukkitRunnable() {
             @Override
             public void run() {

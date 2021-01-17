@@ -16,6 +16,10 @@
 # Particles display every <this many> ticks
 stand-trail-tick-speed: 1
 
+# Whether or not commands should produce the note block
+# sound when used
+command-sound: true
+
 prefix: 'Trails'
 
 messages:

@@ -4,8 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-import javax.annotation.Nullable;
-
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.configuration.ConfigurationSection;
@@ -13,6 +11,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 
+import org.jetbrains.annotations.Nullable;
 import trails.ConfigMessages.ConfigMessage;
 import trails.CheezTrails;
 import trails.ParticleTrail;

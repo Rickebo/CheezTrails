@@ -17,7 +17,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import trails.listener.TrailHandler;
 import trails.listener.TrailListener;
-import utilities.Utils;
 
 public class CheezTrails extends JavaPlugin {
     
@@ -52,7 +51,7 @@ public class CheezTrails extends JavaPlugin {
         getServer().getPluginManager().registerEvents(listener, this);
         
         boolean cheezutils = getServer().getPluginManager().getPlugin("CheezUtils") == null;
-        glow = cheezutils ? new EnchantGlow() : Utils.glow;
+        glow = new EnchantGlow();//cheezutils ? new EnchantGlow() : Utils.glow;
         
         if (!cheezutils)
             try {
@@ -67,7 +66,7 @@ public class CheezTrails extends JavaPlugin {
             } catch (Exception e) {
             }
         
-        CommandExecutor exe = new CommandHandler();
+        CommandExecutor exe = new CommandHandler(config.getBoolean("command-sound", true));
         getCommand("trail").setExecutor(exe);
         getCommand("trails").setExecutor(exe);
     }

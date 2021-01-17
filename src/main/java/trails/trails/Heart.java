@@ -18,8 +18,8 @@ public class Heart extends ParticleTrail {
 
     @Override
     public void doMoveEffect(Player p) {
-        if (TrailListener.cycle % 2 != 0)
-            ParticleEffects.HEART.display(0F, 0F, 0F, 1.0F, 1, p.getLocation().add(0, 1.8, 0), 256);
+//        if (TrailListener.cycle % 2 != 0)
+//            ParticleEffects.HEART.display(0F, 0F, 0F, 1.0F, 1, p.getLocation().add(0, 1.8, 0), 256);
         ParticleEffects.RED_DUST.display(0.1F, 0.3F, 0.1F, 0F, 3, p.getLocation().add(0, 1.5, 0), 256);
     }
 

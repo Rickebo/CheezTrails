@@ -3,7 +3,19 @@
   <groupId>random</groupId>
   <artifactId>CheezTrails</artifactId>
   <version>2.11</version>
-	  <repositories>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>7</source>
+                    <target>7</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <repositories>
 	    <!-- Spigot repo -->
 	    <repository>
 	      <id>spigot-repo</id>
@@ -11,12 +23,17 @@
 	  </repository>
 	  </repositories>
       <dependencies>
-       <dependency>
-           <groupId>org.bukkit</groupId>
-           <artifactId>paper</artifactId>
-           <version>1.15.1</version>
-           <type>jar</type>
-           <scope>provided</scope>
-       </dependency>
-   </dependencies>
+          <dependency>
+              <groupId>org.spigotmc</groupId>
+              <artifactId>spigot-api</artifactId>
+              <version>1.16.4-R0.1-SNAPSHOT</version>
+              <scope>provided</scope>
+          </dependency>
+          <dependency>
+              <groupId>org.jetbrains</groupId>
+              <artifactId>annotations-java5</artifactId>
+              <version>RELEASE</version>
+              <scope>compile</scope>
+          </dependency>
+      </dependencies>
 </project>
